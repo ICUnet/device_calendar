@@ -815,13 +815,10 @@ public class SwiftDeviceCalendarPlugin: NSObject, FlutterPlugin, EKEventViewDele
             ekEvent!.notes = description
             ekEvent!.isAllDay = isAllDay
             ekEvent!.startDate = startDate
-            if (isAllDay) { ekEvent!.endDate = startDate }
-            else {
-                ekEvent!.endDate = endDate
+            ekEvent!.endDate = endDate
 
-                let timeZone = TimeZone(identifier: startTimeZoneString ?? TimeZone.current.identifier) ?? .current
-                ekEvent!.timeZone = timeZone
-            }
+            let timeZone = TimeZone(identifier: startTimeZoneString ?? TimeZone.current.identifier) ?? .current
+            ekEvent!.timeZone = timeZone
             ekEvent!.calendar = ekCalendar!
             ekEvent!.location = location
 
